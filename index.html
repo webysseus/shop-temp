@@ -1,0 +1,19 @@
+<!doctype html>
+<!--
+  dir="rtl" and lang="fa" go on the root html tag, not deeper in the tree.
+  This is what makes the browser treat the whole document as right-to-left
+  by default (scrollbars, text direction, form controls, etc.) instead of
+  us having to fight it with CSS everywhere.
+-->
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فروشگاه | نمونه قالب فروشگاهی</title>
+    <meta name="description" content="قالب فروشگاه اینترنتی فارسی با پنل مدیریت — آماده برای سفارشی‌سازی" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
