@@ -1,0 +1,85 @@
+/*
+  MOTION
+  ======
+  On purpose, this file is short. The brief asked for animation that's
+  smooth but not overdone, and the fastest way to make a site feel
+  cheap is to fade-and-slide every single element on scroll. Instead:
+
+  - ONE orchestrated entrance happens on the homepage hero (a short
+    staggered reveal), used once.
+  - Everywhere else, motion only happens in response to something the
+    person does: opening the cart, submitting a form, hovering a
+    button. That kind of motion explains what changed, so it earns
+    its place.
+*/
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* For panels that rest against a screen edge (cart drawer, mobile menu).
+   Named by physical side on purpose — translateX is always a physical
+   axis, it doesn't flip for RTL the way inset-inline-start/end does. If
+   you reuse one of these panels in a left-to-right project, swap which
+   keyframe it uses. */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Used once, on the hero section's children, via inline --delay custom
+   properties set in Hero.jsx. This is the "one orchestrated moment"
+   from the design plan, not a scroll-triggered effect reused everywhere. */
+.hero-reveal {
+  animation: rise-in var(--duration-slow) var(--ease-standard) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.fade-in {
+  animation: fade-in var(--duration-base) var(--ease-standard) both;
+}

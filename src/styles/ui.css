@@ -1,0 +1,340 @@
+/* =====================================================================
+   BUTTON
+   ===================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  font-weight: var(--weight-semibold);
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
+}
+
+.btn:active {
+  transform: scale(0.97); /* small press feedback so clicks feel responsive */
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn--sm {
+  padding: var(--space-2xs) var(--space-sm);
+  font-size: var(--font-size-sm);
+}
+.btn--md {
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-base);
+}
+.btn--lg {
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--font-size-md);
+}
+.btn--full {
+  width: 100%;
+}
+
+.btn--primary {
+  background: var(--color-gold);
+  color: var(--color-surface);
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-gold-deep);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink);
+}
+.btn--secondary:hover:not(:disabled) {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-ink);
+}
+.btn--ghost:hover:not(:disabled) {
+  background: var(--color-paper-alt);
+}
+
+.btn--danger {
+  background: var(--color-danger);
+  color: var(--color-surface);
+}
+.btn--danger:hover:not(:disabled) {
+  background: #8a2f2f;
+}
+
+.btn__icon {
+  display: inline-flex;
+}
+
+/* =====================================================================
+   MODAL
+   ===================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 27, 31, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  z-index: 100;
+  animation: fade-in var(--duration-fast) var(--ease-standard) both;
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  animation: scale-in var(--duration-base) var(--ease-standard) both;
+}
+.modal--sm {
+  max-width: 420px;
+}
+.modal--md {
+  max-width: 560px;
+}
+.modal--lg {
+  max-width: 800px;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: var(--color-surface);
+}
+
+.modal__title {
+  font-size: var(--font-size-lg);
+}
+
+.modal__close {
+  display: inline-flex;
+  padding: var(--space-2xs);
+  border-radius: var(--radius-full);
+  color: var(--color-stone);
+  transition: background var(--duration-fast) var(--ease-standard);
+}
+.modal__close:hover {
+  background: var(--color-paper-alt);
+  color: var(--color-ink);
+}
+
+.modal__body {
+  padding: var(--space-md);
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2xs);
+  padding: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  position: sticky;
+  bottom: 0;
+  background: var(--color-surface);
+}
+
+/* =====================================================================
+   TOAST
+   ===================================================================== */
+.toast-stack {
+  position: fixed;
+  bottom: var(--space-md);
+  inset-inline-end: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  z-index: 200;
+  max-width: min(90vw, 360px);
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  background: var(--color-surface);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border-inline-start: 3px solid var(--color-stone);
+  font-size: var(--font-size-sm);
+}
+.toast--success {
+  border-inline-start-color: var(--color-success);
+  color: var(--color-success);
+}
+.toast--error {
+  border-inline-start-color: var(--color-danger);
+  color: var(--color-danger);
+}
+.toast--info {
+  border-inline-start-color: var(--color-gold);
+  color: var(--color-gold-deep);
+}
+.toast span {
+  color: var(--color-ink-soft);
+}
+
+/* =====================================================================
+   BADGE
+   ===================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3xs) var(--space-xs);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+}
+.badge--neutral,
+.badge--stone {
+  background: var(--color-paper-alt);
+  color: var(--color-stone);
+}
+.badge--gold {
+  background: var(--color-gold-soft);
+  color: var(--color-gold-deep);
+}
+.badge--success {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+.badge--danger {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+/* =====================================================================
+   FORM FIELDS
+   ===================================================================== */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  margin-bottom: var(--space-sm);
+}
+
+.form-field__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.form-field__required {
+  color: var(--color-danger);
+}
+
+.form-field__input {
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: var(--font-size-base);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+  width: 100%;
+}
+.form-field__input:focus {
+  border-color: var(--color-gold);
+}
+.form-field__input::placeholder {
+  color: var(--color-stone-light);
+}
+
+.form-field__select {
+  cursor: pointer;
+}
+
+.form-field__error {
+  font-size: var(--font-size-xs);
+  color: var(--color-danger);
+}
+
+/* =====================================================================
+   SPINNER
+   ===================================================================== */
+.spinner {
+  display: inline-block;
+  border: 3px solid var(--color-paper-alt);
+  border-top-color: var(--color-gold);
+  border-radius: var(--radius-full);
+  width: 24px;
+  height: 24px;
+  animation: spin 0.8s linear infinite;
+}
+
+/* =====================================================================
+   PRODUCT IMAGE (real photo OR placeholder)
+   ===================================================================== */
+.product-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-none);
+  background: var(--color-paper-alt);
+  overflow: hidden;
+}
+
+.product-image--placeholder {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image__pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.product-image__monogram {
+  position: relative;
+  z-index: 1;
+  font-size: 2.75rem;
+  font-weight: var(--weight-bold);
+}
+
+/* Placeholder color themes — swap/extend these if your product data
+   uses different `tone` values. */
+.product-image--sand {
+  background: linear-gradient(135deg, #f0e6d2, #ddc79c);
+  color: #8c6d3f;
+}
+.product-image--sage {
+  background: linear-gradient(135deg, #e9eee5, #c9d8c1);
+  color: #4b7a5b;
+}
+.product-image--rose {
+  background: linear-gradient(135deg, #eee0e1, #d9bcc0);
+  color: #8f5a63;
+}
+.product-image--ink {
+  background: linear-gradient(135deg, #3a3833, #1c1b1f);
+  color: #d9c9a8;
+}
+.product-image--clay {
+  background: linear-gradient(135deg, #e6d4be, #c9a47c);
+  color: #7a5230;
+}

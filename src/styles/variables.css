@@ -1,0 +1,101 @@
+/*
+  DESIGN TOKENS
+  =============
+  Every color, font size, spacing value and shadow in the whole project
+  is defined ONCE here as a CSS custom property (variable), then reused
+  everywhere else. This is the main file to edit when you reuse this
+  template for a different brand — change the values below and the
+  entire site (storefront + admin panel) updates automatically, because
+  every other CSS file references these variables instead of hardcoded
+  values.
+*/
+
+:root {
+  /* ---------- Brand palette ----------
+     Warm ink + paper + antique gold. Gold is used ON PURPOSE only in a
+     few places (price, primary buttons, active states) — it's meant to
+     feel like a deliberate accent, not a color that's everywhere. */
+  --color-ink: #1c1b1f;          /* near-black, warm not blue-black. Headlines, header bg */
+  --color-ink-soft: #3a3833;     /* body text on light backgrounds */
+  --color-paper: #faf8f4;        /* main background, warm ivory */
+  --color-paper-alt: #f2eee6;    /* section backgrounds that need to sit apart from --color-paper */
+  --color-surface: #ffffff;      /* cards, inputs, anything that should look "lifted" */
+
+  --color-gold: #b08d57;         /* signature accent color */
+  --color-gold-deep: #8c6d3f;    /* hover / pressed state of the accent */
+  --color-gold-soft: #ede2cd;    /* tint of the accent for subtle backgrounds/badges */
+
+  --color-stone: #86807a;        /* secondary text, muted labels */
+  --color-stone-light: #b7b2a9;  /* placeholder text, disabled state */
+  --color-border: #e4dfd5;       /* hairline dividers and input borders */
+
+  --color-success: #4b7a5b;
+  --color-success-soft: #e3ede6;
+  --color-danger: #a83a3a;
+  --color-danger-soft: #f4e4e2;
+
+  /* ---------- Typography ----------
+     One Persian type family (Vazirmatn) used at different weights to
+     build hierarchy, per the plan: display headlines get the heaviest
+     weight, body copy stays light and readable. */
+  --font-family: 'Vazirmatn', Tahoma, sans-serif;
+
+  --font-size-xs: 0.75rem;    /* 12px - fine print, helper text */
+  --font-size-sm: 0.875rem;   /* 14px - secondary labels */
+  --font-size-base: 1rem;     /* 16px - body text */
+  --font-size-md: 1.125rem;   /* 18px - lead paragraphs */
+  --font-size-lg: 1.375rem;   /* 22px - card titles, section intros */
+  --font-size-xl: 1.75rem;    /* 28px - page titles */
+  --font-size-2xl: 2.5rem;    /* 40px - section headlines */
+  --font-size-3xl: 3.5rem;    /* 56px - hero headline */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.85;
+
+  /* ---------- Spacing scale ----------
+     Stick to these instead of inventing one-off pixel values, so
+     vertical rhythm stays consistent across the whole site. */
+  --space-3xs: 0.25rem;  /* 4px */
+  --space-2xs: 0.5rem;   /* 8px */
+  --space-xs: 0.75rem;   /* 12px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2.5rem;    /* 40px */
+  --space-xl: 4rem;      /* 64px */
+  --space-2xl: 6rem;     /* 96px */
+
+  /* ---------- Radius ----------
+     Used WITH INTENTION, not the same number everywhere: sharp edges
+     on structural/image blocks (feels more editorial/boutique), soft
+     radius on things people click. */
+  --radius-none: 0;
+  --radius-sm: 4px;   /* inputs, badges */
+  --radius-md: 8px;   /* buttons, cards, modals */
+  --radius-full: 999px; /* pills, avatars, dots */
+
+  /* ---------- Shadow ----------
+     Only two, used sparingly — not "one soft grey shadow under every
+     card." Reserved for things that float above the page (modals,
+     the cart drawer, dropdowns). */
+  --shadow-sm: 0 2px 8px rgba(28, 27, 31, 0.06);
+  --shadow-lg: 0 16px 48px rgba(28, 27, 31, 0.16);
+
+  /* ---------- Layout ---------- */
+  --content-max-width: 1280px;
+  --header-height: 76px;
+
+  /* ---------- Motion ----------
+     One easing curve, used consistently, so every transition in the
+     app feels like it belongs to the same product. */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+}

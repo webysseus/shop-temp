@@ -1,0 +1,144 @@
+/*
+  GLOBAL BASE STYLES
+  ===================
+  Resets + default element styling. Component-specific styles live in
+  their own files under src/styles/ — this file only sets up the shared
+  foundation so every page starts from the same baseline.
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Lets 1rem = 16px math stay predictable, and respects the user's
+     browser font-size setting instead of locking it. */
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-ink-soft);
+  background: var(--color-paper);
+  min-height: 100vh;
+  /* Persian numerals/text render a touch heavy at pure 400 on some
+     screens — this keeps body copy crisp without going full anti-alias. */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-ink);
+}
+
+/* ---------- Accessibility ----------
+   Keyboard users still need to see where focus is — removing the
+   outline without replacing it is a common accessibility mistake.
+   This only shows the ring for keyboard navigation (:focus-visible),
+   not for every mouse click. */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Respect people who've asked their OS to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Shared layout helpers ---------- */
+
+.container {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-inline: var(--space-sm);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Section heading pattern reused across Home/Shop/etc: a title with a
+   short supporting line underneath, right-aligned to match RTL reading
+   direction (this is "start" alignment, not a hardcoded "right"). */
+.section-heading {
+  text-align: start;
+  margin-bottom: var(--space-lg);
+}
+
+.section-heading__title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-2xs);
+}
+
+.section-heading__subtitle {
+  color: var(--color-stone);
+  font-size: var(--font-size-md);
+  font-weight: var(--weight-regular);
+  max-width: 60ch;
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
